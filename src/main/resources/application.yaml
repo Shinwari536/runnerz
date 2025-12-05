@@ -6,6 +6,16 @@ spring:
     username: "myuser"
     password: "KoXH5if29kLu5dSvdY"
     driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
   sql:
     init:
       mode: always

@@ -1,0 +1,30 @@
+### Send POST request with json body to create a student record
+POST http://localhost:8080/api/students
+Content-Type: application/json
+
+{
+  "firstname": "Isher",
+  "lastname": "wood",
+  "email": "isherwood@gmail.com",
+  "age": 36
+}
+
+### Send PUT request with json body to update a student record
+PUT http://localhost:8080/api/students
+Content-Type: application/json
+
+{
+  "id": 2,
+  "firstname": "Isher",
+  "lastname": "wood",
+  "email": "isherwood@gmail.com",
+  "age": 27
+}
+
+### GET request to get all the students
+GET http://localhost:8080/api/students/all
+Accept: application/json
+
+### GET request to get the student By Id
+GET http://localhost:8080/api/students?id=1
+Accept: application/json
