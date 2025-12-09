@@ -3,22 +3,23 @@ POST http://localhost:8080/api/students
 Content-Type: application/json
 
 {
-  "firstname": "Isher",
-  "lastname": "wood",
-  "email": "isherwood@gmail.com",
-  "age": 36
+  "firstname": "Mosh",
+  "lastname": "Hamadani",
+  "email": "mosh@gmail.com",
+  "age": 29,
+  "schoolId": 2
 }
 
 ### Send PUT request with json body to update a student record
-PUT http://localhost:8080/api/students
+PUT http://localhost:8080/api/students?id=6
 Content-Type: application/json
 
 {
-  "id": 2,
-  "firstname": "Isher",
-  "lastname": "wood",
-  "email": "isherwood@gmail.com",
-  "age": 27
+  "firstname": "Mosh",
+  "lastname": "Hamadani",
+  "email": "mosh456@gmail.com",
+  "age": 40,
+  "schoolId": 2
 }
 
 ### GET request to get all the students
@@ -27,4 +28,34 @@ Accept: application/json
 
 ### GET request to get the student By Id
 GET http://localhost:8080/api/students?id=1
+Accept: application/json
+
+### GET request to get the student By Id
+GET http://localhost:8080/api/students/search?query=joh
+Accept: application/json
+
+
+## School API endpoints
+
+
+### Send POST request with json body to create a school record
+POST http://localhost:8080/api/schools
+Content-Type: application/json
+
+{
+  "name": "PakTurk I.D.E.F"
+}
+
+
+### Send PUT request with json body to update a school record
+PUT http://localhost:8080/api/schools
+Content-Type: application/json
+
+{
+  "id": 3,
+  "name": "American Speekers"
+}
+
+### GET request to get all the students
+GET http://localhost:8080/api/schools/all
 Accept: application/json

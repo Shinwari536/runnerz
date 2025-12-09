@@ -1,5 +1,6 @@
-package com.codewithme.runnerz.student;
+package com.codewithme.runnerz.student.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -18,11 +19,23 @@ public class Student {
     private Integer age;
 
 
+    @OneToOne(
+            mappedBy = "student",
+            cascade = CascadeType.ALL
+    )
+    private StudentProfile profile;
+    @ManyToOne()
+    @JoinColumn(
+            name = "school_id"
+    )
+    @JsonBackReference
+    private School school;
+
+
     public Student() {
     }
 
-    public Student(Integer id, String firstname, String lastname, String email, Integer age) {
-        this.id = id;
+    public Student(String firstname, String lastname, String email, Integer age) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -69,4 +82,19 @@ public class Student {
         this.age = age;
     }
 
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
+
+    public StudentProfile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(StudentProfile profile) {
+        this.profile = profile;
+    }
 }
